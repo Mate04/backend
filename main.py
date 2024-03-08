@@ -10,7 +10,7 @@ load_dotenv()
 URLAuth = os.getenv('URLAUTHENTIC')
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["*"],
+    allow_origins = ["https://cotizador-frontend.vercel.app/"],
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = ["*"],
