@@ -9,20 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from heyoo import WhatsApp
 
 app = FastAPI()
-load_dotenv()
-URLAuth = os.getenv('URLAUTHENTIC')
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins = ["https://cotizador-frontend.vercel.app/","http://localhost:5173/"],
-    allow_credentials = True,
-    allow_methods = ["*"],
-    allow_headers = ["*"],
-)
 
 
 @app.get('/')
 def root():
+    load_dotenv()
+    URLAuth = os.getenv('URLAUTHENTIC')
     return {'url_athentic':URLAuth}
 @app.post('/')
 def root(strucMsg:strucMsg):
