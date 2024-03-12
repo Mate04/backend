@@ -51,7 +51,7 @@ async def logica(request: Request):
             wsp = WhatsApp(IDENTIFICAR_WSP,PHONE_NUMBER_ID)
             numeroAutorizados = {
                 5493512450192:543512450192,
-                549351153997175:54351153997175
+                5493513997175:54351153997175
                 }
             wsp.send_message(mensaje,numeroAutorizados[telefono]) 
             return True

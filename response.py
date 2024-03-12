@@ -27,7 +27,6 @@ def response(strucMsg:strucMsg):
             thread_id=thread.id,
             assistant_id=asistente.id)
         while run.status not in ["completed","failed"]:
-            print(run.status)
             run = Client.beta.threads.runs.retrieve(
             thread_id=thread.id,
             run_id=run.id
