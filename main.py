@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 import os
 from fastapi.middleware.cors import CORSMiddleware
 from heyoo import WhatsApp
-
 app = FastAPI()
 
 
@@ -47,18 +46,18 @@ async def logica(request: Request):
         telefono = int(data['from'])
         try:
             res = await responseWSP(telefono,mensaje,timestamp)
+            print(res['mesagge'])
             mensaje = res['mesagge']
             wsp = WhatsApp(IDENTIFICAR_WSP,PHONE_NUMBER_ID)
             numeroAutorizados = {
                 5493512450192:543512450192,
-                5493513997175:54351153997175
+                5493513997175:543513997175
                 }
             wsp.send_message(mensaje,numeroAutorizados[telefono]) 
             return True
         except Exception as e:
             print(f"Hubo un error al ejecutar responseWSP: {e}")
-            return HTTPException(500, detail=str(e))
-
-        
+            return HTTPException(500, detail=str(e))        
     except KeyError as e:
         return HTTPException(500,detail='no se envio en formato mensaje')
+    

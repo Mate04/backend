@@ -58,7 +58,8 @@ async def responseWSP(numero:int, msg:str,timestep:int):
     if not thread:
         raise HTTPException(status_code=400,detail='Mensaje ya enviado')
     
-
+    print(thread)
     #Crear un objeto strucMsg
     mensaje_estructurado = strucMsg(msg=msg, thread=thread)
-    return response(mensaje_estructurado)
+    res = response(mensaje_estructurado)
+    return res
